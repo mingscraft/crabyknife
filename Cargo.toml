@@ -1,0 +1,22 @@
+[package]
+name = "crabyknife"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+quick-xml = "0.37.5"
+uuid = { version = "1", features = ["v4"] }
+
+[lib]
+name = "crabyknife"           # The name of the target.
+path = "src/lib.rs"  
+
+[[bin]]
+name = "prettify-xml"
+path = "src/bin/prettify_xml/main.rs"
+
+[[bin]]
+name = "new-uuid"
+path = "src/bin/new_uuid/main.rs"
