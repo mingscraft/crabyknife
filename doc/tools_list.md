@@ -1,3 +1,5 @@
+# Full list of tools
+
 This repository currently includes the following Rust-based CLI tools:
 
 ## 🧼 prettify-xml
