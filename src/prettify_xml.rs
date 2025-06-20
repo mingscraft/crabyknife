@@ -6,15 +6,11 @@ use quick_xml::{events::Event, Reader};
 /// # Example
 /// ```
 ///
-/// use crabyknife::prettify_xml::safe_prettify_xml;
-/// assert_eq!(safe_prettify_xml(), "hello");
+/// use crabyknife::prettify_xml::prettify_xml;
+/// assert_eq!(prettify_xml("<root><child>text</child></root>").unwrap(), "<root>\n  <child>text</child>\n</root>");
 ///
 /// ```
 ///
-pub fn safe_prettify_xml(unprettified_xml: &str) -> String {
-    prettify_xml(unprettified_xml).unwrap_or(unprettified_xml.to_string())
-}
-
 pub fn prettify_xml(unprettified_xml: &str) -> Result<String, Box<dyn std::error::Error>> {
     let mut reader = Reader::from_str(unprettified_xml);
     reader.config_mut().trim_text(true);
