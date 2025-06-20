@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.0] - 2025-06-20
+
+### Added
+- Move to single command model: `crabyknife`. So the list of commands are now a list of subcommands.
+
+### Fixed
+- N/A
+
+### Changed
+- All the commands are now subcommands of the root command `crabyknife`.
+
+---
+
+---
+
 ## [0.1.0] - 2025-06-20
 
 ### Added
