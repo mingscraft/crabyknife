@@ -13,7 +13,7 @@ Format and indent raw or minified XML input to make it human-readable.
 ### Example:
 
 ```
-cat messy.xml | prettify-xml > clean.xml
+cat messy.xml | crabyknife prettify-xml > clean.xml
 ```
 
 ## 🆕 new-uuid
@@ -26,5 +26,5 @@ Generate fresh, RFC-compliant UUIDs from the command line.
 ### Example:
 
 ```
-new-uuid
+crabyknife new-uuid
 ```

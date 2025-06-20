@@ -24,7 +24,7 @@ pub fn prettify_xml(unprettified_xml: &str) -> Result<String, Box<dyn std::error
     loop {
         match reader.read_event_into(&mut buf)? {
             Event::Start(ref e) => {
-                output.push_str(&"\n".repeat(1));
+                output.push('\n');
                 output.push_str(&indent_str.repeat(indent));
                 output.push('<');
                 output.push_str(&String::from_utf8_lossy(e.name().as_ref()));
@@ -57,7 +57,7 @@ pub fn prettify_xml(unprettified_xml: &str) -> Result<String, Box<dyn std::error
                 //   <child />
                 // </parent>
                 if !child_is_text {
-                    output.push_str(&"\n".repeat(1));
+                    output.push('\n');
                     output.push_str(&indent_str.repeat(indent));
                 }
                 output.push_str("</");
@@ -78,14 +78,14 @@ pub fn prettify_xml(unprettified_xml: &str) -> Result<String, Box<dyn std::error
                 output.push_str("]]>");
             }
             Event::Comment(e) => {
-                output.push_str(&"\n".repeat(1));
+                output.push('\n');
                 output.push_str(&indent_str.repeat(indent));
                 output.push_str("<!--");
                 output.push_str(&e.unescape()?);
                 output.push_str("-->");
             }
             Event::Decl(e) => {
-                output.push_str(&"\n".repeat(1));
+                output.push('\n');
                 output.push_str("<?xml");
 
                 output.push_str(" version=\"");
@@ -107,7 +107,7 @@ pub fn prettify_xml(unprettified_xml: &str) -> Result<String, Box<dyn std::error
                 output.push_str("?>");
             }
             Event::Empty(e) => {
-                output.push_str(&"\n".repeat(1));
+                output.push('\n');
                 output.push_str(&indent_str.repeat(indent));
                 output.push('<');
                 output.push_str(&String::from_utf8_lossy(e.name().as_ref()));
@@ -122,10 +122,10 @@ pub fn prettify_xml(unprettified_xml: &str) -> Result<String, Box<dyn std::error
                 output.push_str(" />");
             }
             Event::PI(e) => {
-                output.push_str(&"\n".repeat(1));
+                output.push('\n');
                 output.push_str(&indent_str.repeat(indent));
                 output.push_str("<?");
-                output.push_str(&String::from_utf8_lossy(e.target().as_ref()));
+                output.push_str(&String::from_utf8_lossy(e.target()));
                 for attr in e.attributes().with_checks(false) {
                     let attr = attr?;
                     output.push(' ');
