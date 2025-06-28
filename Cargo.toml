@@ -9,3 +9,5 @@ license = "MIT"
 [dependencies]
 quick-xml = "0.37.5"
 uuid = { version = "1", features = ["v4"] }
+socket2 = { version = "0.5", features = ["all" ]}
+tokio = { version = "1" }

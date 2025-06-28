@@ -7,7 +7,7 @@ fn main() {
 
     let subcommand = args
         .next()
-        .unwrap_or_else(|| panic!("usage: {} <subcommand>", program_name));
+        .unwrap_or_else(|| panic!("usage: {program_name} <subcommand>"));
 
     if let Err(err) = commandline::run(&subcommand, args) {
         eprint!("{err}");

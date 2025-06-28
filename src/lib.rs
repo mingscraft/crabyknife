@@ -2,4 +2,5 @@
 //! in crabyknife package.
 
 pub mod commandline;
+pub mod ping;
 pub mod prettify_xml;
