@@ -25,12 +25,6 @@ const ICMP_ECHO_REPLY: u8 = 0;
 /// - DNS resolution fails
 /// - Raw socket creation fails (may require root/privileged access)
 /// - The packet fails to send or receive
-///
-/// # Example
-///
-/// ```
-/// ping("8.8.8.8").unwrap();
-/// ```
 pub fn ping(target: &str) -> Result<(), Box<dyn std::error::Error>> {
     // `ToSocketAddrs`'s `to_socket_addrs` method expect the str to be parsed
     // in the format of `hostname:port`.
@@ -125,13 +119,6 @@ fn build_packet(seq: u16, pid: u16) -> Vec<u8> {
 /// # Returns
 ///
 /// * `u16` - The computed checksum value.
-///
-/// # Example
-///
-/// ```
-/// let packet = vec![0u8; 8];
-/// let csum = checksum(&packet);
-/// ```
 fn checksum(data: &[u8]) -> u16 {
     let mut sum = 0u32;
     let chunks = data.chunks(2);
